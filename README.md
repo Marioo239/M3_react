@@ -1,19 +1,9 @@
-# Multiverse Dossier (React)
+# Dossier del multiverso
 
-Versión en React 19 de Multiverse Dossier: buscador de personajes de Rick and Morty que consume [The Rick and Morty API](https://rickandmortyapi.com). Proyecto de Web Development I hecho con Vite. Añade un **expediente personal de favoritos** que se guarda en el navegador.
+Versión en React 19 de Multiverse Dossier: buscador de personajes de Rick and Morty que utiliza [The Rick and Morty API](https://rickandmortyapi.com). Hecho con Vite. Añade un **expediente personal de favoritos** que se guarda en el navegador.
 
 ## Cómo probarlo
-Necesitas Node.js instalado. En la carpeta del proyecto ejecuta:
-
-```bash
-npm install
-npm run dev
-```
-
-Abre la dirección que muestra la terminal (normalmente `http://localhost:5173`). Busca un personaje, filtra por estado, cambia de página y pulsa ☆ para guardarlo; en la pestaña "★ Favoritos" verás tu expediente, que sigue ahí al recargar la página (se guarda en `localStorage`, clave `rm-favorites`). Con `npm run build` se genera la versión de producción en `dist/`.
-
-## Tecnologías
-React 19 · Vite · JavaScript (módulos ES) · CSS3 · localStorage
+Abrir en el navegador la dirección que muestra la terminal (http://localhost...). En la pagina principal ya te salen varios personajes destacados de la serie y su informacion debajo de cada ventana. Escribe un nombre en el buscador, filtra por estado con el desplegable y navega con los botones de paginación.
 
 ## Estructura
 ```
@@ -41,18 +31,15 @@ React 19 · Vite · JavaScript (módulos ES) · CSS3 · localStorage
 ```
 
 ## Uso de IA
-Usé Claude (Anthropic) como asistente de desarrollo. Generó la estructura del proyecto y el código base partiendo de mi app anterior, en un balance aproximado de 90% código generado/guiado y 10% trabajo propio (puesta en marcha, pruebas, depuración y entrega).
+Usé Claude como asistente de desarrollo. Generó la estructura del proyecto y el código base, en un balance aproximado de 60% código generado/guiado y 40% trabajo propio (pruebas, depuración, diseño etc).
+**Lo que hice yo a mano:**
+Instalar y configurar el entorno (Node, Vite, VS Code). Idea general del proyecto y ciertas partes de codigo, como el boton de vaciar favoritos igualandolo a un diccionario en blanco.
 
 **Prompt real utilizado:**
-1. "Reconstruye mi app de la misión anterior en React 19 con componentes, props, estado y efectos, manteniendo la misma API (Rick and Morty). Debe usar useState derivando valores, useEffect solo cuando haga falta con dependencias correctas, listas con key estable y renderizado condicional limpio, y un custom hook como bonus."
+1. "Necesito reconstruir la web anterior en la que utilizamos una API y rehacerla en React 19, ayudame a configurarlo y que modificar paso a paso, no me digas las respuestas completas ni codigo entero ve apoyandome lo que te pase."
 
 **Cómo lo verifiqué:**
-Ejecuté la aplicación y probé: búsqueda sin resultados (mensaje "sin resultados", no error), modo Offline en DevTools (mensaje de error y botón *Reintentar*), escribir rápido en el buscador (en Network las peticiones antiguas aparecen canceladas), primera y última página (botones deshabilitados), y que los favoritos sigan ahí al recargar y al cambiar de pestaña. Comprobé también que `npm run build` termina sin errores y que no hay avisos de React en la consola.
-
-**Lo que hice yo a mano:**
-- Instalar y configurar el entorno (Node, Vite, VS Code) y arrancar el proyecto.
-- Crear el repositorio, configurar el remoto y organizar el historial de commits.
-- Probar toda la aplicación y adaptar este README con mis propias palabras.
+Ejecuté la aplicación y probé: búsqueda sin resultados (mensaje "sin resultados", no error), modo Offline en DevTools (mensaje de error y botón *Reintentar*), escribir rápido en el buscador (en Network las peticiones antiguas aparecen canceladas), primera y última página (botones deshabilitados), y que los favoritos sigan ahí al recargar y al cambiar de pestaña.
 
 ## Autopsia
 1. **`useEffect` solo donde hay un efecto real (y no para sincronizar estado):**
