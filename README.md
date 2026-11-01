@@ -32,6 +32,7 @@ Abrir en el navegador la dirección que muestra la terminal (http://localhost...
 
 ## Uso de IA
 Usé Claude como asistente de desarrollo. Generó la estructura del proyecto y el código base, en un balance aproximado de 60% código generado/guiado y 40% trabajo propio (pruebas, depuración, diseño etc).
+
 **Lo que hice yo a mano:**
 Instalar y configurar el entorno (Node, Vite, VS Code). Idea general del proyecto y ciertas partes de codigo, como el boton de vaciar favoritos igualandolo a un diccionario en blanco.
 
